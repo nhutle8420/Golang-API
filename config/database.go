@@ -10,7 +10,7 @@ import (
 	"gorm.io/gorm"
 )
 
-func setupDatabase() *gorm.DB {
+func SetupDatabaseConnection() *gorm.DB {
 	errEvn := godotenv.Load()
 	if errEvn != nil {
 		panic("Faile to load env file env")
@@ -28,9 +28,8 @@ func setupDatabase() *gorm.DB {
 }
 func closeConnect(db *gorm.DB) {
 	dbSql, err := db.DB()
-	if err !=nil {
+	if err != nil {
 		panic("Faile to close database")
 	}
-	dbSql.Close() 
+	dbSql.Close()
 }
-
